@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children Education Support Arts - Premium Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-palette"></i>
+                <span>Arts Garden</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="children.html" class="nav-link">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Impact</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <button class="nav-btn" onclick="openAuthModal()">Sign In</button>
+                <button class="nav-btn primary" onclick="openAuthModal()">Join</button>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-video">
+            <!-- VIDEO PLACEHOLDER -->
+            <video autoplay muted loop>
+                <source src="http://localhost:3000/videos/5734832-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Support a Child's Future Through Art</h1>
+                <p class="hero-subtitle">Every artwork purchased transforms a life. Join our global movement to empower young artists through education.</p>
+                <button class="hero-cta" onclick="window.location.href='children.html'">
+                    <span>Explore Artists</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Global Impact</h2>
+                <p class="section-subtitle">Together, we're creating opportunities for children worldwide through the power of art and education</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-graduation-cap" style="font-size: 24px; color: var(--accent-blue);"></i>
+                        </div>
+                        <div class="review-info">
+                            <h4>Education Supported</h4>
+                            <div class="review-date">Since 2020</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">Over 500 children have received educational support through our platform, with many now pursuing their dreams in medicine, engineering, and the arts.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-paint-brush" style="font-size: 24px; color: var(--accent-blue);"></i>
+                        </div>
+                        <div class="review-info">
+                            <h4>Artworks Sold</h4>
+                            <div class="review-date">Global Reach</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">More than 10,000 unique artworks have found homes worldwide, creating a sustainable ecosystem for young artists to showcase their talent.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-globe" style="font-size: 24px; color: var(--accent-blue);"></i>
+                        </div>
+                        <div class="review-info">
+                            <h4>Countries Reached</h4>
+                            <div class="review-date">25 Nations</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">Our community spans across 25 countries, bringing together supporters who believe in the transformative power of art education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Artists -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Young Artists</h2>
+                <p class="section-subtitle">Discover the incredible talent and dreams of children waiting for your support</p>
+            </div>
+            <div class="reviews-grid" id="featuredArtists">
+                <!-- Featured artists will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Supporters Say</h2>
+                <p class="section-subtitle">Real stories from people making a difference in children's lives</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://picsum.photos/seed/user1/48/48" alt="Sarah Johnson" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Sarah Johnson</h4>
+                            <div class="review-date">2 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">"This platform changed my perspective on giving. Purchasing artwork from these talented children feels so much more meaningful than traditional charity. I now have beautiful art in my home and know I've helped a child's education journey."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://picsum.photos/seed/user2/48/48" alt="Michael Chen" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Michael Chen</h4>
+                            <div class="review-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">"The quality of artwork is exceptional! I've purchased several pieces and each one tells a beautiful story. The children's dreams and aspirations shine through their art. This is more than just buying art – it's investing in futures."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://picsum.photos/seed/user3/48/48" alt="Emily Rodriguez" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Emily Rodriguez</h4>
+                            <div class="review-date">3 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">"As an art teacher myself, I'm amazed by the talent and creativity displayed. The platform makes it so easy to support these young artists while building a meaningful art collection. My students are now inspired by these children's stories!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://picsum.photos/seed/user4/48/48" alt="David Thompson" class="review-avatar">
+                        <div class="review-info">
+                            <h4>David Thompson</h4>
+                            <div class="review-date">2 months ago</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">"The transparency and impact reporting is outstanding. I can see exactly how my contributions are making a difference. The children's progress updates and thank you messages make this a truly rewarding experience."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://picsum.photos/seed/user5/48/48" alt="Lisa Park" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Lisa Park</h4>
+                            <div class="review-date">1 week ago</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">"I started with one artwork and now I'm a regular supporter. The community aspect is wonderful – connecting with other supporters and seeing the collective impact we're making. These children are our future artists and leaders!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://picsum.photos/seed/user6/48/48" alt="Robert Williams" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Robert Williams</h4>
+                            <div class="review-date">3 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="review-text">"The platform's user experience is seamless, and knowing that 100% of the artwork purchase goes directly to supporting the child's education makes every purchase meaningful. This is how charity should work – transparent, impactful, and beautiful."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple steps to make a lasting impact on a child's educational journey</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-search" style="font-size: 24px; color: var(--accent-blue);"></i>
+                        </div>
+                        <div class="review-info">
+                            <h4>1. Discover Artists</h4>
+                            <div class="review-date">Step 1</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Browse through profiles of talented young artists, read their stories, and explore their unique artwork collections. Each child has a dream and a story to share.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-heart" style="font-size: 24px; color: var(--accent-blue);"></i>
+                        </div>
+                        <div class="review-info">
+                            <h4>2. Support & Collect</h4>
+                            <div class="review-date">Step 2</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Support an artwork with just $5. Each piece needs 20 supporters to reach the $100 goal that funds the child's education for a month.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-download" style="font-size: 24px; color: var(--accent-blue);"></i>
+                        </div>
+                        <div class="review-info">
+                            <h4>3. Download & Display</h4>
+                            <div class="review-date">Step 3</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Once an artwork is fully supported, download your high-resolution digital art and display it proudly. You now own a piece of a child's dream.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-palette"></i>
+                        <span>Arts Garden</span>
+                    </div>
+                    <p>Empowering young artists through education. Every artwork purchased transforms a life and builds a brighter future.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="children.html">All Artists</a></li>
+                        <li><a href="#">Featured Artworks</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Impact Report</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@childrenarts.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Hope Street, New York, NY</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Children Education Support Arts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Welcome to Arts Garden</h2>
+                <p class="modal-subtitle">Sign in or join to start supporting young artists</p>
+            </div>
+            
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="switchTab('signin')">Sign In</button>
+                <button class="tab-btn" onclick="switchTab('signup')">Join</button>
+            </div>
+            
+            <div class="tab-content active" id="signinTab">
+                <form id="signinForm">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" name="password" required placeholder="Enter your password">
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="form-submit">Sign In</button>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="signupTab">
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" name="phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" name="password" required placeholder="Create a password">
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+                    </div>
+                    <button type="submit" class="form-submit">Join Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <button class="cart-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <p style="text-align: center; color: var(--text-muted); padding: 40px 0;">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-amount" id="cartTotal">$0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
